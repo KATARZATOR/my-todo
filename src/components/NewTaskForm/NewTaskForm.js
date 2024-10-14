@@ -1,20 +1,20 @@
-import React, { useState } from "react";
-import PropTypes from 'prop-types';
+import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 
-const NewTaskForm = ({ onItemAdded }) => {
-  const [label, setLabel] = useState(''); 
+function NewTaskForm({ onItemAdded }) {
+  const [label, setLabel] = useState('')
 
   const onLabelChange = (e) => {
-    setLabel(e.target.value); 
-  };
+    setLabel(e.target.value)
+  }
 
   const onSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     if (label.trim()) {
-      onItemAdded(label); 
-      setLabel(''); 
+      onItemAdded(label)
+      setLabel('')
     }
-  };
+  }
 
   return (
     <header className="header">
@@ -23,21 +23,22 @@ const NewTaskForm = ({ onItemAdded }) => {
         <input
           className="new-todo"
           placeholder="What needs to be done?"
-          autoFocus
+          type="text"
+          autoComplete="off"
           value={label}
           onChange={onLabelChange}
         />
       </form>
     </header>
-  );
-};
+  )
+}
 
 NewTaskForm.defaultProps = {
-  onItemAdded: () => {}
-};
+  onItemAdded: () => {},
+}
 
 NewTaskForm.propTypes = {
-  onItemAdded: PropTypes.func
-};
+  onItemAdded: PropTypes.func,
+}
 
-export default NewTaskForm;
+export default NewTaskForm

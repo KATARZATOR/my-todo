@@ -1,13 +1,14 @@
-import React from "react";
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-const Footer = ({ itemsLeft, filter, onFilterChange, onClearCompleted }) => {
+function Footer({ itemsLeft, filter, onFilterChange, onClearCompleted }) {
   return (
     <footer className="footer">
       <span className="todo-count">{itemsLeft} items left</span>
       <ul className="filters">
         <li>
           <button
+            type="button"
             className={filter === 'all' ? 'selected' : ''}
             onClick={() => onFilterChange('all')}
           >
@@ -16,6 +17,7 @@ const Footer = ({ itemsLeft, filter, onFilterChange, onClearCompleted }) => {
         </li>
         <li>
           <button
+            type="button"
             className={filter === 'active' ? 'selected' : ''}
             onClick={() => onFilterChange('active')}
           >
@@ -24,6 +26,7 @@ const Footer = ({ itemsLeft, filter, onFilterChange, onClearCompleted }) => {
         </li>
         <li>
           <button
+            type="button"
             className={filter === 'completed' ? 'selected' : ''}
             onClick={() => onFilterChange('completed')}
           >
@@ -32,25 +35,29 @@ const Footer = ({ itemsLeft, filter, onFilterChange, onClearCompleted }) => {
         </li>
       </ul>
 
-      <button className="clear-completed" onClick={onClearCompleted}>
+      <button
+        type="button"
+        className="clear-completed"
+        onClick={onClearCompleted}
+      >
         Clear completed
       </button>
     </footer>
-  );
-};
+  )
+}
 
 Footer.defaultProps = {
   itemsLeft: 0,
   filter: 'all',
   onFilterChange: () => {},
-  onClearCompleted: () => {}
-};
+  onClearCompleted: () => {},
+}
 
 Footer.propTypes = {
   itemsLeft: PropTypes.number,
   filter: PropTypes.string,
   onFilterChange: PropTypes.func,
-  onClearCompleted: PropTypes.func
-};
+  onClearCompleted: PropTypes.func,
+}
 
-export default Footer;
+export default Footer

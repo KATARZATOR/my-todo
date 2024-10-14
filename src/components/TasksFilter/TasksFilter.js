@@ -1,12 +1,21 @@
-import React from "react";
+import React from 'react'
 
-const TasksFilters=()=>{
-    return (
-        <ul className="filters">
-          <li><button className="selected">All</button></li>
-          <li><button>Active</button></li>
-          <li><button>Completed</button></li>
-        </ul>);
-    };
+function TasksFilters() {
+  return (
+    <ul className="filters">
+      <li>
+        <button type="button" className="selected">
+          All
+        </button>
+      </li>
+      <li>
+        <button type="button">Active</button>
+      </li>
+      <li>
+        <button type="button">Completed</button>
+      </li>
+    </ul>
+  )
+}
 
-export default TasksFilters;
+export default TasksFilters
